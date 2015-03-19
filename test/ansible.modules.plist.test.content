@@ -1,0 +1,17 @@
+{
+    testArray =     (
+        test1,
+        test2
+    );
+    testBool = 1;
+    testDate = "1970-01-01 00:00:00 +0000";
+    testDict =     {
+        test1 = ok1;
+        test2 = ok2;
+        test3 = ok3;
+        test4 = ok4;
+    };
+    testFloat = "7.7";
+    testInt = 7;
+    testString = myString;
+}

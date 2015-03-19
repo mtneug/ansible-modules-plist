@@ -1,0 +1,70 @@
+---
+- hosts: workstation
+
+  tasks:
+    - name: start from scratch
+      file:
+        path: /tmp/ansible.modules.plist.test.plist
+        state: absent
+
+    - name: test string
+      plist_file:
+        dest: /tmp/ansible.modules.plist.test.plist
+        key: testString
+        value: myString
+        type: string
+
+    - name: test int
+      plist_file:
+        dest: /tmp/ansible.modules.plist.test.plist
+        key: testInt
+        value: 7
+        type: int
+
+    - name: test float
+      plist_file:
+        dest: /tmp/ansible.modules.plist.test.plist
+        key: testFloat
+        value: 7.7
+        type: float
+
+    - name: test bool
+      plist_file:
+        dest: /tmp/ansible.modules.plist.test.plist
+        key: testBool
+        value: true
+        type: bool
+
+    - name: test date
+      plist_file:
+        dest: /tmp/ansible.modules.plist.test.plist
+        key: testDate
+        value: "1970-01-01T00:00:00Z"
+        type: date
+
+    - name: test array
+      plist_file:
+        dest: /tmp/ansible.modules.plist.test.plist
+        key: testArray
+        value:
+          - test1
+          - test2
+        type: array
+
+    - name: test dict
+      plist_file:
+        dest: /tmp/ansible.modules.plist.test.plist
+        key: testDict
+        value:
+          test1: ok1
+          test2: ok2
+        type: dict
+
+    - name: test dict-add
+      plist_file:
+        dest: /tmp/ansible.modules.plist.test.plist
+        key: testDict
+        value:
+          test3: ok3
+          test4: ok4
+        type: dict-add
