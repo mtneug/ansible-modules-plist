@@ -1,7 +1,7 @@
 #!/bin/sh
 set -e
 
-ansible-playbook test.yml -i hosts -M ../
+ansible-playbook test.yml -i hosts -M ../library
 
 set +e
 defaults read /tmp/ansible.modules.plist.test.plist | /usr/bin/diff - ./ansible.modules.plist.test.content
