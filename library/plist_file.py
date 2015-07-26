@@ -6,9 +6,9 @@ DOCUMENTATION = '''
 ---
 module: plist_file
 author: Matthias Neugebauer
-short_description:  Manage settings in plist files
+short_description: Manage settings in plist files
 description:
-     - Manage settings in plist files.
+  - Manage settings in plist files.
 options:
   dest:
     description:
@@ -17,7 +17,7 @@ options:
     default: null
   value:
     description:
-     - Value which sould be set.
+      - Value which sould be set.
     required: true
     default: null
   key:
@@ -82,6 +82,7 @@ def equal(slave, master):
     return True
 
 def update(d, u):
+    """Taken from http://stackoverflow.com/a/3233356"""
     for k, v in u.iteritems():
         if isinstance(v, collections.Mapping):
             r = update(d.get(k, {}), v)
@@ -96,7 +97,8 @@ def main():
             dest  = dict(required=True),
             value = dict(required=True),
             key   = dict(required=False)
-        )
+        ),
+        supports_check_mode=True
     )
 
     if not module.params['dest'].startswith('/'):
