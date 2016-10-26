@@ -95,7 +95,7 @@ def main():
     module = AnsibleModule(
         argument_spec = dict(
             dest  = dict(required=True),
-            value = dict(required=True),
+            value = dict(required=True, type='raw'),
             key   = dict(required=False)
         ),
         supports_check_mode=True
